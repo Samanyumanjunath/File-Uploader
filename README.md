@@ -2,7 +2,7 @@
 
 This project is a React-based solution for the Frontend Developer Assignment requiring a robust, multi-file uploader with progress tracking and status notifications.
 
-The application successfully handles multiple files simultaneously, simulates large file uploads via progress tracking, and utilizes a **25% random failure rate** to demonstrate graceful error handling.
+The application successfully handles multiple files simultaneously, simulates large file uploads via progress tracking.
 
 ## ✨ Core Features Implemented
 
