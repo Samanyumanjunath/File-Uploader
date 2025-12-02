@@ -1,16 +1,66 @@
-# React + Vite
+# 🚀 File Uploader Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React-based solution for the Frontend Developer Assignment requiring a robust, multi-file uploader with progress tracking and status notifications.
 
-Currently, two official plugins are available:
+The application successfully handles multiple files simultaneously, simulates large file uploads via progress tracking, and utilizes a **25% random failure rate** to demonstrate graceful error handling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Core Features Implemented
 
-## React Compiler
+* **Multi-File Upload:** Users can select or drop multiple files simultaneously.
+* **Parallel Processing:** Each file upload is managed independently and concurrently.
+* **Simulated Progress:** Utilizes an `async/await` loop to simulate chunked upload progress (0-100%) for each file.
+* **Error Handling:** A random 25% failure rate is built into the mock API to test error notification and status updates.
+* **Toast Notifications:** Uses `react-toastify` to display clear success or detailed error messages.
+* **LIFO Ordering:** New files are added to the top of the upload queue for immediate visibility.
+* **Clean UI:** Styled using Tailwind CSS for a modern, responsive, and clear interface.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🏗️ Architecture & Approach
+
+The application follows the **Container/Presentational Component Pattern** (CBA) for clean separation of concerns:
+
+| Component | Role | Logic Used |
+| :--- | :--- | :--- |
+| **`FileUploader.jsx`** | **Container/Orchestrator.** Holds the central `files` state, triggers `startUpload` using `async/await`, and handles global toasts. | `useState`, `useCallback`, `async/await`, `try/catch` |
+| **`FileItem.jsx`** | **Presentational.** Renders the progress bar, percentage, status icons, and cancel button based purely on props (`fileObj`). | Tailwind CSS, Props |
+| **`mockApi.js`** | **Service Layer.** Simulates network latency and data transfer using a simple `while` loop, an internal `sleep` utility, and random error injection. | Promises, `async/await`, `Math.random()` |
+
+This structure ensures that the UI (`FileItem`) is dumb and reusable, while the logic (`FileUploader`) is smart and manageable.
+
+---
+
+## 🛠️ Setup and Installation
+
+This project was built with React (JavaScript) and uses Tailwind CSS.
+
+### Prerequisites
+
+* Node.js (LTS version recommended)
+* npm or yarn
+
+### Steps to Run
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [YOUR_REPO_LINK_HERE]
+    cd file-uploader
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3.  **Start the application:**
+    ```bash
+    npm start
+    # or
+    yarn start
+    ```
+
+The application will open in your browser at `http://localhost:3000`.
