@@ -1,4 +1,4 @@
-// src/App.js
+
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +9,7 @@ function App() {
     <div className="min-h-screen bg-gray-100 py-10">
       <FileUploader />
       
-      {/* Toast Notification Container */}
+     
       <ToastContainer 
         position="top-right"
         autoClose={3000}

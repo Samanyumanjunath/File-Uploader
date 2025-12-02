@@ -1,4 +1,4 @@
-// src/components/FileItem.jsx
+
 import React from 'react';
 
 const FileItem = ({ fileObj, onCancel }) => {
@@ -37,7 +37,7 @@ const FileItem = ({ fileObj, onCancel }) => {
         {error && <p className="text-xs text-red-500 mt-1 font-semibold">{error}</p>}
       </div>
 
-      {/* Cancel Button (Only show while uploading) */}
+      {/* Cancel Button */}
       {status === 'UPLOADING' && (
         <button 
           onClick={() => onCancel(fileObj.id)}

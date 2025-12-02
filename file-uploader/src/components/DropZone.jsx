@@ -1,4 +1,4 @@
-// src/components/DropZone.jsx
+
 import React, { useCallback } from 'react';
 
 const DropZone = ({ onFilesSelected }) => {
